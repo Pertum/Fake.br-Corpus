@@ -1,21 +1,23 @@
 """
-This script creates a new .CSV file with data information, the news (fake and true ones), the labels, the normalized texts and the preprocessed texts all togheter in the same dataframe. 
+Este script gera um novo banco de dados .CSV com as:
+- data information
+- the news (falsas e verdadeiras)
+- the labels 
+- the normalized texts, and 
+- the preprocessed texts 
 
-31/01/2021  -   Created the folder scripts and the scritp "create_csv" - @pertum 
+Tudo no mesmo dataframe.
+
+09-01-2021 
+-> Os arquivos de informações que faltavam informações sobre os autores foram corrigidos manualmente. 
+
+-> O texto normalizado "586.txt" não existia, então, por conveniência, ele foi ele foi removido do dataset, bem como as correspondentes noticias falsas e verdadeiras. Primeiramente essa decisão foi tomada por uma música do Gabriel pensador não é uma notícia falsa e segundo, o texto original estava incompleto 
+
+-> O arquivo "586.txt" também foi removido. Este foi removido por estar incompleto tanto no meta information quanto no texto da notícia.
+
+-> Os arquivos/notícias removidas foram separados em uma pasta removed_files.
 
 @author:pertum    
-"""
-
-"""Anterior comments from previous analysis
-
-The files with missing informations about the authors (in the true folder) were corrected manually (Pertum - 09/01/2021)
- 
-The size_normalized_text "586.txt" doesn´t exist... so, by convienecy, this file was removed from the dataset. Primarlly this was made because a music of Gabriel Pensador it's not a fake news ??? end second because the full_text 586.txt" were incomplete. 
-Another reason why "586.txt" was removed it's because this file was 
-not normilized with the respective true news (Pertum - 09/01/2021)
-
-The fake file "1607.txt" was removed too. He was removed because it wasb incomplete, incomplete in meta information as well in full text content (Pertum - 09/01/2021)
- 
 """
     
 import numpy as np
@@ -41,3 +43,10 @@ normalized_true = size_normalized_text_folder + "/" + "true"
 normalized_fake = size_normalized_text_folder + "/" + "fake"
 ###############################################################################
 
+metadata_content=[
+                    'news',
+                    'label',
+                    'data_information',
+                    'normalized_text',
+                    'preprocessed'
+                ]
