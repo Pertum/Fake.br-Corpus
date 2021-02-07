@@ -14,7 +14,14 @@ Artigos:
 
 ## Atividades a serem realizadas
 [ ] Analizar o banco de dados  
-[ ] Realizar o preprocessamento das notícias  
+    1. quais links ainda estão ativos?  
+    2. existe ainda um banco de dados mais atual?
+
+[ ] Realizar o preprocessamento das notícias 
+
 [ ] Gerar um novo .csv  
-[ ] Reproduzir os métodos de classificação das notícias falsas  
+    1. 'label', 'category', 'news', 'data_information', 'normalized_text','preprocessed'  
+
+[ ] Reproduzir os métodos de classificação das notícias falsas 
+ 
 [ ] Comparar os resultados com o artigo

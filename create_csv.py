@@ -24,29 +24,17 @@ import numpy as np
 import pandas as pd
 import os
 
-###############################################################################
-# Folder Project
-Fake_Corpus = "Fake.br-Corpus"
+import functions as f
 
-# Full Texts Folders
-full_texts_folder = Fake_Corpus + "/" +  "full_texts"
-
-fake_folder = full_texts_folder + "/" + "fake"
-true_folder = full_texts_folder + "/" + "true"
-fake_meta_inf = full_texts_folder + "/" + "fake-meta-information"
-true_meta_inf = full_texts_folder + "/" + "true-meta-information"
-
-# Size Normalized Texts Folders
-size_normalized_text_folder = Fake_Corpus + "/" + "size_normalized_texts"
-
-normalized_true = size_normalized_text_folder + "/" + "true"
-normalized_fake = size_normalized_text_folder + "/" + "fake"
-###############################################################################
 
 metadata_content=[
-                    'news',
                     'label',
+                    'category',
+                    'news',      
                     'data_information',
                     'normalized_text',
                     'preprocessed'
                 ]
+
+paths = os.listdir(f.full_texts_folder)
+print("aqui")
