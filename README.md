@@ -15,7 +15,7 @@ Artigos:
 ## Atividades a serem realizadas
 [ ] Analizar o banco de dados  
     quais links ainda estão ativos?  
-    existe ainda um banco de dados mais atual?
+    existe um banco de dados mais atual?
 
 [ ] Realizar o preprocessamento das notícias 
 
@@ -25,3 +25,7 @@ Artigos:
 [ ] Reproduzir os métodos de classificação das notícias falsas 
  
 [ ] Comparar os resultados com o artigo
+
+
+Outros bancos de dados relacionados a notícias
+https://github.com/jghm-f/FACTCK.BR
