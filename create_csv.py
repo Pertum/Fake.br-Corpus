@@ -23,18 +23,26 @@ Tudo no mesmo dataframe.
 import numpy as np
 import pandas as pd
 import os
-
-import functions as f
-
+import functions as func
 
 metadata_content=[
-                    'label',
-                    'category',
-                    'news',      
+                    'news', 
+                    'category',                         
                     'data_information',
                     'normalized_text',
-                    'preprocessed'
+                    'preprocessed',
+                    'label'
                 ]
 
-paths = os.listdir(f.full_texts_folder)
-print("aqui")
+# lista de informações
+news, category, data_inf, normalized_text, label = func.get_content()
+
+
+# dataframe
+# df = pd.DataFrame(columns = metadata_content)
+
+
+
+
+
+
