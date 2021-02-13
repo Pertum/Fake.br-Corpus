@@ -37,9 +37,10 @@ metadata_content=[
 # lista de informações
 news, category, data_inf, normalized_text, label = func.get_content()
 
+# text = func.preprocessamento(news[2])
 
 # dataframe
-# df = pd.DataFrame(columns = metadata_content)
+df = pd.DataFrame(columns = metadata_content)
 
 
 

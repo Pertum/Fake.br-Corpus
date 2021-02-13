@@ -15,17 +15,17 @@ Artigos:
 ## Atividades a serem realizadas
 [ ] Analizar o banco de dados  
     quais links ainda estão ativos?  
-    existe um banco de dados mais atual?
+    existe um banco de dados mais atual?  -> Khaled
 
 [ ] Realizar o preprocessamento das notícias 
 
 [ ] Gerar um novo .csv  
-    'label', 'category', 'news', 'data_information', 'normalized_text','preprocessed'  
+    'label', 'category', 'news', 'data_information', 'normalized_text','preprocessed'  -> Pertum
 
 [ ] Reproduzir os métodos de classificação das notícias falsas 
  
 [ ] Comparar os resultados com o artigo
 
 
-Outros bancos de dados relacionados a notícias
+Outros bancos de dados relacionados a notícias  
 https://github.com/jghm-f/FACTCK.BR
