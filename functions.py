@@ -91,8 +91,13 @@ def get_content():
         text = preprocessamento((normalized_fake + "/" + j))
         
         # save the text
-        file_name = "preprocessed" + "/" + "fake" + "/" + j
-        file = open(file_name, "w+")
+        file_name = "preprocessed" + "/" + "fake" + "/" + j 
+        
+        try:
+            file = open(file_name, "r+")
+        except:
+            file = open(file_name, "w") 
+             
         file.write(text)
         file.close()
         
@@ -119,8 +124,12 @@ def get_content():
         text = preprocessamento((normalized_fake + "/" + j))
         
         # save the text
-        file_name = "preprocessed" + "/" + "true" + "/" + j
-        file = open(file_name, "w+")
+        file_name = "preprocessed" + "/" + "true" + "/" + j 
+        
+        try:
+            file = open(file_name, "r+")
+        except:
+            file = open(file_name, 'w') 
         file.write(text)
         file.close()
         
