@@ -19,7 +19,7 @@ Tudo no mesmo dataframe.
 
 @author:pertum    
 """
-    
+#%% 
 import numpy as np
 import pandas as pd
 import os
@@ -34,16 +34,19 @@ metadata_content=[
                     'label'
                 ]
 
+
 # lista de informações
-news, category, data_inf, normalized_text, label = func.get_content()
+news, category, data_inf, normalized_text, label, preprocessed = func.get_content()
 
 # text = func.preprocessamento(news[2])
 
+
 # dataframe
-df = pd.DataFrame(columns = metadata_content)
+df = pd.DataFrame(np.transpose([news, category, data_inf, normalized_text, preprocessed, label]), columns = metadata_content)
 
+# save a csv file
+df.to_csv(r'dataframe.csv', index=True, header=True)
 
+print("aqui")
 
-
-
-
+# %%

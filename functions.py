@@ -101,6 +101,7 @@ def get_content():
         file.write(text)
         file.close()
         
+               
         preprocessed.append(file_name)
  
     aux = os.listdir(true_meta_inf)
@@ -114,6 +115,7 @@ def get_content():
         arq = true_meta_inf + "/" + i
         text = pd.read_fwf(arq)
         lista = text[text.columns[0]].tolist()
+        
 
         news.append((true_folder + "/" + j))
         category.append(lista[1])
@@ -134,8 +136,8 @@ def get_content():
         file.close()
         
         preprocessed.append(file_name)
-
-    return news, category, data_inf, normalized_text, label 
+           
+    return news, category, data_inf, normalized_text, label, preprocessed 
         
 
 def preprocessamento(news):
