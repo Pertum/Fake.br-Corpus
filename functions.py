@@ -42,6 +42,34 @@ preprocessed_content =[
     'label'   
 ]
 
+data_information_content = [
+                    'author',
+                    'link',
+                    'category',
+                    'date_of_publication',
+                    'number_of_tokens',
+                    'number_of_word_without_ponctuation',
+                    'number_of_types',
+                    'number_of_links_inside_the_news',
+                    'number_of_words_in_upper_case',
+                    'number_of_verbs',
+                    'number_of_subjuntive_and_imperative_verbs',
+                    'number_of_nouns',
+                    'number_of_adjetives',
+                    'number_of_adverbs',
+                    'number_of_modal_verbs',
+                    'number_of_singular_first',
+                    'number_of_plural_first',
+                    'number_of_pronoums',
+                    'pausality',
+                    'number_of_characters',
+                    'average_sentence_length',
+                    'average_word_length',
+                    'percentage_of_spelling_erros',
+                    'emotiveness',
+                    'diversity'
+                    ]
+
 ###############################################################################
 
 def find_url(string):
@@ -200,4 +228,40 @@ def dirs2texts(dirs):
         
         texts.append(text)        
         
+        
+    #        # add the new row to the dataframe
+    # pertum_dataframe = pertum_dataframe.append(pd.Series(np.transpose(new_row), index=pertum_dataframe.columns), ignore_index=True)
+    
     return texts
+
+
+
+def dris2dataframe(dirs):
+    dataframe = pd.Dataframe(columns=meta_data_information)
+    
+    new_row = []
+    for i in dirs:
+        
+        text = pd.read_fwf(i)
+        new_row = text[text.columns[0]].tolist(text)
+        new_row.insert(0, text.columns[0])
+
+    dataframe = dataframe.append(pd.Series(np.transpose(new_row), index=dataframe.columns), ignore_index=True)
+
+    return dataframe
+
+
+def dirs2information(dirs):
+    
+    data=[]
+    
+    for i in dirs:
+        text = pd.read_fwf(i)
+        new_row = text[text.columns[0]].tolist()
+         
+        # insere a informação do autor
+        new_row.insert(0,text.columns[0])   
+
+        data.append(new_row)
+    
+    return data

@@ -16,4 +16,10 @@ sub_df = aux[['preprocessed', 'label']]
 preprocessed = func.dirs2texts(sub_df['preprocessed'])
 
 # exemplo de um dataframe com os textos preprocessados e os labels
-sub_df = pd.DataFrame([np.transpose(preprocessed), sub_df['label']], func.preprocessed_content)
+sub_df_01 = pd.DataFrame([np.transpose(preprocessed), columns = func.preprocessed_content)
+
+
+## extrair os metadados e criar um dataframe de exemplo com meta_content
+
+data_information = func.dirs2information(df['data_information'])
+sub_df_02 = pd.DataFrame(np.transpose([data_information]), columns=func.data_information_content)
