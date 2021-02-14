@@ -37,6 +37,11 @@ normalized_fake = size_normalized_text_folder + "/" + "fake"
 
 preprocessed = "preprocessed"
 
+preprocessed_content =[
+    'preprocessed',
+    'label'   
+]
+
 ###############################################################################
 
 def find_url(string):
@@ -116,7 +121,6 @@ def get_content():
         text = pd.read_fwf(arq)
         lista = text[text.columns[0]].tolist()
         
-
         news.append((true_folder + "/" + j))
         category.append(lista[1])
         data_inf.append(arq)
@@ -174,13 +178,26 @@ def preprocessamento(news):
     
     text = text.strip()        
          
-    # split the words and do the lower case
+    # tokenize
     words = nltk.word_tokenize(text)
       
-    # stopwords from each word    
+    # stopwords from each word and lower case   
     stripped = [unidecode.unidecode(word.lower()) for word in words if word.lower() not in stopw]
             
     text = dtk().detokenize(stripped)
    
     return text
+
+
+def dirs2texts(dirs):
     
+    texts = []
+    
+    for i in dirs:
+        file = open(i)
+        text = file.read()
+        file.close()
+        
+        texts.append(text)        
+        
+    return texts

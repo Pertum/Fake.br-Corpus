@@ -38,9 +38,6 @@ metadata_content=[
 # lista de informações
 news, category, data_inf, normalized_text, label, preprocessed = func.get_content()
 
-# text = func.preprocessamento(news[2])
-
-
 # dataframe
 df = pd.DataFrame(np.transpose([news, category, data_inf, normalized_text, preprocessed, label]), columns = metadata_content)
 
@@ -48,5 +45,3 @@ df = pd.DataFrame(np.transpose([news, category, data_inf, normalized_text, prepr
 df.to_csv(r'dataframe.csv', index=True, header=True)
 
 print("aqui")
-
-# %%

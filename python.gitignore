@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -137,6 +138,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+
+__pycache__/functions.cpython-38.pyc
 
 # VS Code ignore
 .vscode/*
