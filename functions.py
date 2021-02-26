@@ -177,6 +177,7 @@ def preprocessamento(news):
     file = open(news, 'rt')
     text = file.read()
     file.close()
+    
 
     # lower case the text
     text = text.lower()
@@ -227,28 +228,8 @@ def dirs2texts(dirs):
         file.close()
         
         texts.append(text)        
-        
-        
-    #        # add the new row to the dataframe
-    # pertum_dataframe = pertum_dataframe.append(pd.Series(np.transpose(new_row), index=pertum_dataframe.columns), ignore_index=True)
-    
+
     return texts
-
-
-
-def dris2dataframe(dirs):
-    dataframe = pd.Dataframe(columns=meta_data_information)
-    
-    new_row = []
-    for i in dirs:
-        
-        text = pd.read_fwf(i)
-        new_row = text[text.columns[0]].tolist(text)
-        new_row.insert(0, text.columns[0])
-
-    dataframe = dataframe.append(pd.Series(np.transpose(new_row), index=dataframe.columns), ignore_index=True)
-
-    return dataframe
 
 
 def dirs2information(dirs):
