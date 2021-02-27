@@ -151,3 +151,6 @@ __pycache__/functions.cpython-38.pyc
 
 # Local History for Visual Studio Code
 .history/
+
+# model word vector
+skip_s300.txt
