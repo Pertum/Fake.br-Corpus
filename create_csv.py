@@ -43,5 +43,3 @@ df = pd.DataFrame(np.transpose([news, category, data_inf, normalized_text, prepr
 
 # save a csv file
 df.to_csv(r'dataframe.csv', index=True, header=True)
-
-print("aqui")

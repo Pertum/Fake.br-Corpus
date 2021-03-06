@@ -44,7 +44,11 @@ labels = df['label'].to_numpy()
 sub_df_03 = pd.DataFrame(np.transpose([preprocessed, labels]), columns = ['preprocessed','label'])
 
 # por fim, a concatenação
-sub_df_04 = pd.concat([sub_df_02, sub_df_03], axis=1)
+complete_df = pd.concat([sub_df_02, sub_df_03], axis=1)
 
-sub_df_04.info()
+complete_df.info()
+
+# save a csv file
+complete_df.to_csv(r'complete_dataframe.csv', index=True, header=True)
+
 # %%
