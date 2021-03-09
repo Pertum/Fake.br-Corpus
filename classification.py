@@ -16,17 +16,17 @@ df = pd.read_csv(file_name)
 
 
 # features
-features = [ 'number_of_modal_verbs',
+features = [ 'number_of_modal_verbs', 
             'number_of_singular_first',
             'number_of_plural_first',
             'number_of_pronoums',
-            'pausality',
+            'pausality', #
             # 'number_of_characters',
-            'average_sentence_length',
-            'average_word_length',
-            'percentage_of_spelling_erros',
-            'emotiveness',
-            'diversity',
+            'average_sentence_length', #
+            'average_word_length', #
+            'percentage_of_spelling_erros', #
+            'emotiveness', #
+            'diversity', #
             'label'
             ]
 
@@ -52,7 +52,7 @@ X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=X_
 # print(X_train.shape, X_test.shape, X_val.shape)
 
 # treina o modelo
-model = LogisticRegression()
+model = LogisticRegression(penalty='none')
 model.fit(X_train,y_train)
 
 # predições
@@ -79,4 +79,20 @@ f1_score = 2*(fpr*fcr)/(fpr+fcr)
 print('LBR - %0.3f'% lbr)
 print('FCR - %0.3f'% fcr)
 print('FPR - %0.3f'% fpr)
-print('F1 score - %0.3f'% f1_score)
+print('F1  - %0.3f'% f1_score)
+
+#%%
+import nltk 
+from nltk import tokenize    
+import nltk.tokenize.punkt
+nltk.download('mac_morpho')
+import nlpnet
+nltk.download('tagsets')
+
+text = 'eu estou morrendo de vontade de cortar o meu pé fora'
+palavras_tokenize = tokenize.word_tokenize(text, language='portuguese')   
+print(palavras_tokenize)
+
+
+
+# %%

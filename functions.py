@@ -14,6 +14,10 @@ from nltk.corpus import stopwords
 from string import punctuation
 from nltk import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer as dtk
+from nltk.tokenize import RegexpTokenizer
+
+import nlpnet
+import string
 
 stopw = stopwords.words('portuguese')
 
@@ -246,3 +250,9 @@ def dirs2information(dirs):
         data.append(new_row)
     
     return data
+
+def getNLPNet():
+	tagger = nlpnet.POSTagger('pos-pt', language='pt')
+	return tagger
+
+    
