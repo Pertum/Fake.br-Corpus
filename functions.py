@@ -161,7 +161,7 @@ def get_content():
         normalized_text.append((normalized_true + "/" + j))
         label.append("true")
         
-        text = preprocessamento((normalized_fake + "/" + j))
+        text = preprocessamento((normalized_true + "/" + j))
         
         # save the text
         file_name = "preprocessed" + "/" + "true" + "/" + j 
