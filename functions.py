@@ -19,7 +19,7 @@ from nltk.tokenize import RegexpTokenizer
 import nlpnet
 import string
 
-punctuation = punctuation + "''" + "º" + "ª" +'"' + "°" + '...' 
+punctuation = punctuation + "''" + "º" + "ª" +'"' + "°" + '”' 
 
 stopw = stopwords.words('portuguese')
 
@@ -183,11 +183,12 @@ def preprocessamento(news, file = True):
     # reuso da função
     if file==True:
 
-        text = open(news, 'wt').read()
+        arq= open(news, 'rt')
+        text = arq.read()
+        arq.close()
     else:
         text = news
     
-
     # lower case the text
     text = text.lower()
 
@@ -217,12 +218,10 @@ def preprocessamento(news, file = True):
             
     text = dtk().detokenize(stripped)
    
+    # remove punctuation
     text = text.replace("...", '')
-    text = text.replace('"', '')
-    text = text.replace('""', '')
-
-
-    # remove punctuation        
+    text = text.replace('”', '')
+         
     for iten in punctuation:
         text = text.replace(iten, '')
 
