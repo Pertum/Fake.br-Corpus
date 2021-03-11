@@ -19,6 +19,8 @@ from nltk.tokenize import RegexpTokenizer
 import nlpnet
 import string
 
+punctuation = punctuation + "''" + "º" + "ª" +'"' + "°" + '...' 
+
 stopw = stopwords.words('portuguese')
 
 ###############################################################################
@@ -176,11 +178,14 @@ def get_content():
     return news, category, data_inf, normalized_text, label, preprocessed 
         
 
-def preprocessamento(news):
+def preprocessamento(news, file = True):
     
-    file = open(news, 'rt')
-    text = file.read()
-    file.close()
+    # reuso da função
+    if file==True:
+
+        text = open(news, 'wt').read()
+    else:
+        text = news
     
 
     # lower case the text
@@ -190,35 +195,37 @@ def preprocessamento(news):
     number = find_numbers(text)
     for iten in number:
         if iten !="":
-            text = text.replace(iten, "0")
+            text = text.replace(iten, "")
 
     # remove emails 
     email = find_email(text)
     for iten in email:
         if iten != "":
-            text = text.replace(iten, "EMAIL")
+            text = text.replace(iten, "")
    
     # remove url   
     url = find_url(text)     
     for iten in url:
         if iten != "":
-            text = text.replace(iten, "URL")
-    
-    # remove punctuation
-    for iten in punctuation:
-        if iten in text:
-            text = text.replace(iten, "") 
-    
-    text = text.strip()        
-         
+            text = text.replace(iten, "")
+
     # tokenize
     words = nltk.word_tokenize(text)
-      
+ 
     # stopwords from each word and lower case   
     stripped = [unidecode.unidecode(word.lower()) for word in words if word.lower() not in stopw]
             
     text = dtk().detokenize(stripped)
    
+    text = text.replace("...", '')
+    text = text.replace('"', '')
+    text = text.replace('""', '')
+
+
+    # remove punctuation        
+    for iten in punctuation:
+        text = text.replace(iten, '')
+
     return text
 
 

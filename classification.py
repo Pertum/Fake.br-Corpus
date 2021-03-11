@@ -82,17 +82,19 @@ print('FPR - %0.3f'% fpr)
 print('F1  - %0.3f'% f1_score)
 
 #%%
-import nltk 
-from nltk import tokenize    
-import nltk.tokenize.punkt
-nltk.download('mac_morpho')
-import nlpnet
-nltk.download('tagsets')
+import functions as func
+import pandas as pd
 
-text = 'eu estou morrendo de vontade de cortar o meu pé fora'
-palavras_tokenize = tokenize.word_tokenize(text, language='portuguese')   
-print(palavras_tokenize)
+file_name = "new_factCkBR.tsv"
+df = pd.read_csv(file_name, sep='\t')
 
-
+df = df['claimReviewed']
 
 # %%
+import functions as func
+import pandas as pd
+
+file_name = "dataset_fakenews_elei__es2018.xlsx"
+df = pd.read_excel(file_name)
+
+df.head()
