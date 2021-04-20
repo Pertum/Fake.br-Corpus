@@ -13,19 +13,26 @@ Artigos:
 ---
 
 ## Atividades a serem realizadas
-[ ] Analizar o banco de dados  
-    quais links ainda estão ativos?  
-    existe um banco de dados mais atual?  -> Khaled
+[ x ] Analizar o banco de dados.  
+    existe um banco de dados mais atual?  -> Khaled/Pertum
+    1. https://github.com/jghm-f/FACTCK.BR  
+    2. https://data.mendeley.com/datasets/fr8wy3fpyz/1
 
 [ ] Realizar o preprocessamento das notícias 
+1. hold on -> Pertum
 
-[ ] Gerar um novo .csv  
-    'label', 'category', 'news', 'data_information', 'normalized_text','preprocessed'  -> Pertum
+[ x ] Gerar um novo .csv  
+    'label', 'category', 'news', 'data_information', 'normalized_text','preprocessed' -> Pertum
 
-[ ] Reproduzir os métodos de classificação das notícias falsas 
- 
+[ x ] Reproduzir os métodos de classificação das notícias falsas  
+1. Regressão Logística [ x ]
+2. SVM [  ]
+3. FastText [  ]
+4. Word2Vec [ x ]
+
 [ ] Comparar os resultados com o artigo
 
+[ ] Gerar um modelo utilizando BERT
+1. https://www.tensorflow.org/tutorials/text/classify_text_with_bert?hl=pt-br  
+2. https://github.com/neuralmind-ai/portuguese-bert
 
-Outros bancos de dados relacionados a notícias  
-https://github.com/jghm-f/FACTCK.BR
