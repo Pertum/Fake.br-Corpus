@@ -1,11 +1,11 @@
-import numpy as np
+# import numpy as np
 import pandas as pd
 # import function as func
 
 from sklearn.preprocessing import PolynomialFeatures, LabelBinarizer, StandardScaler
 from sklearn.linear_model import LinearRegression, LogisticRegression
-from sklearn.pipeline import make_pipeline
-from sklearn.linear_model import Ridge
+# from sklearn.pipeline import make_pipeline
+# from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
@@ -16,16 +16,16 @@ df = pd.read_csv(file_name)
 
 
 # features
-features = [ 'number_of_modal_verbs', 
-            'number_of_singular_first',
-            'number_of_plural_first',
-            'number_of_pronoums',
-            'pausality', #
+features = [ #'number_of_modal_verbs', 
+            # 'number_of_singular_first',
+            # 'number_of_plural_first',
+            # 'number_of_pronoums',
+            # 'pausality', #
             # 'number_of_characters',
-            'average_sentence_length', #
-            'average_word_length', #
-            'percentage_of_spelling_erros', #
-            'emotiveness', #
+            # 'average_sentence_length', #
+            # 'average_word_length', #
+            # 'percentage_of_spelling_erros', #
+            # 'emotiveness', #
             'diversity', #
             'label'
             ]
@@ -82,7 +82,7 @@ print('FPR - %0.3f'% fpr)
 print('F1  - %0.3f'% f1_score)
 
 #%%
-import functions as func
+# import functions as func
 import pandas as pd
 
 file_name = "new_factCkBR.tsv"
@@ -91,7 +91,7 @@ df = pd.read_csv(file_name, sep='\t')
 df = df['claimReviewed']
 
 # %%
-import functions as func
+# import functions as func
 import pandas as pd
 
 file_name = "dataset_fakenews_elei__es2018.xlsx"

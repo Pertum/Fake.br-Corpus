@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 import re
 import os
@@ -12,18 +11,28 @@ nltk.download('stopwords')
 
 from nltk.corpus import stopwords
 from string import punctuation
-from nltk import word_tokenize
+# from nltk import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer as dtk
-from nltk.tokenize import RegexpTokenizer
+# from nltk.tokenize import RegexpTokenizer
 
 import nlpnet
-import string
+
+from lexical_diversity import lex_div as ld
 
 punctuation = punctuation + "''" + "º" + "ª" +'"' + "°" + '”' 
 
 stopw = stopwords.words('portuguese')
 
-###############################################################################
+##################################################################################################
+import spacy
+
+
+
+
+
+
+##################################################################################################
+
 # Folder Project
 Fake_Corpus = "Fake.br-Corpus"
 
@@ -55,10 +64,10 @@ data_information_content = [
                     'date_of_publication',
                     'number_of_tokens',
                     'number_of_word_without_ponctuation',
-                    'number_of_types',
+                    'number_of_types',                              
                     'number_of_links_inside_the_news',
                     'number_of_words_in_upper_case',
-                    'number_of_verbs',
+                    'number_of_verbs',                              #
                     'number_of_subjuntive_and_imperative_verbs',
                     'number_of_nouns',
                     'number_of_adjetives',
@@ -227,7 +236,7 @@ def preprocessamento(news, file = True):
 
     return text
 
-
+# converte os textos dos arquivos do diretório para text em uma lista
 def dirs2texts(dirs):
     
     texts = []
@@ -241,7 +250,7 @@ def dirs2texts(dirs):
 
     return texts
 
-
+# extrai os dados de meta-information dos arquivos txt no diretório
 def dirs2information(dirs):
     
     data=[]
@@ -257,8 +266,42 @@ def dirs2information(dirs):
     
     return data
 
+
+def lexical_features(news, file=False):
+    
+    nlp = spacy.load("pt_core_news_lg")
+
+    if file==True:
+        arq= open(news, 'rt')
+        text = arq.read()
+        arq.close()
+    else:
+        text = news
+    
+    text = nlp(text)
+    
+    return
+
+# inicia o tagget do NLPNet
 def getNLPNet():
 	tagger = nlpnet.POSTagger('pos-pt', language='pt')
 	return tagger
 
-    
+# calcula a diversidade utilizando a biblioteca lexical diversity
+def diversity(text):
+    return ld.ttr(ld.flemmatize(text))
+
+# converte todos os textos de um pandas para uma lista de valores de diversidade
+def pandas2diversity(pandas):
+    ld_list = list()
+    for text in pandas:
+        ld_list.append(diversity(text))
+    return ld_list
+
+# conta ocorrencia de determinada tagg
+def count_occ(taggs, sigla):
+    count=0
+    for tag in taggs:
+        if tag[1] == sigla:
+            count = count+1
+    return count
