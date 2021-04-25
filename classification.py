@@ -1,4 +1,4 @@
-# import numpy as np
+import numpy as np
 import pandas as pd
 # import function as func
 
@@ -16,17 +16,17 @@ df = pd.read_csv(file_name)
 
 
 # features
-features = [ #'number_of_modal_verbs', 
+# features = [ 'number_of_modal_verbs', 
             # 'number_of_singular_first',
             # 'number_of_plural_first',
             # 'number_of_pronoums',
-            # 'pausality', #
+            'pausality', #
             # 'number_of_characters',
             # 'average_sentence_length', #
             # 'average_word_length', #
             # 'percentage_of_spelling_erros', #
             # 'emotiveness', #
-            'diversity', #
+            # 'diversity', #
             'label'
             ]
 
@@ -57,12 +57,12 @@ model.fit(X_train,y_train)
 
 # predições
 y_predict = model.predict(X)
-y_test_predict= model.predict(X_test)
+y_train_predict=model.predict(X_train)
 y_val_predict=model.predict(X_val)
 y_test_predict = model.predict(X_test)
 
 # acurácias
-acc_train = accuracy_score(y_test, y_test_predict)
+acc_train = accuracy_score(y_train, y_train_predict)
 acc_val = accuracy_score(y_val, y_val_predict)
 acc_test = accuracy_score(y_test, y_test_predict)
 
@@ -70,6 +70,8 @@ print(acc_train, acc_val, acc_test)
 
 # métricas
 tn, fp, fn, tp = confusion_matrix(y_test, y_test_predict).ravel()
+
+# print(tn, fp, fn, tp)
 
 lbr = (fp/(tp+fp))
 fcr = (tp/(tp+fn))
@@ -80,21 +82,3 @@ print('LBR - %0.3f'% lbr)
 print('FCR - %0.3f'% fcr)
 print('FPR - %0.3f'% fpr)
 print('F1  - %0.3f'% f1_score)
-
-#%%
-# import functions as func
-import pandas as pd
-
-file_name = "new_factCkBR.tsv"
-df = pd.read_csv(file_name, sep='\t')
-
-df = df['claimReviewed']
-
-# %%
-# import functions as func
-import pandas as pd
-
-file_name = "dataset_fakenews_elei__es2018.xlsx"
-df = pd.read_excel(file_name)
-
-df.head()
